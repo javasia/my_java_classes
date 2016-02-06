@@ -7,7 +7,7 @@ public class Frame_1_2_4 {
 	}
 
 	static void printTankInfo(){
-		Tank t = new Tank();
+		Tank t = new Tank("green", 5, 100);
 		System.out.println("color: "+t.color);
 		System.out.println("crew: "+t.crew);
 		System.out.println("maxSpeed: "+t.maxSpeed);

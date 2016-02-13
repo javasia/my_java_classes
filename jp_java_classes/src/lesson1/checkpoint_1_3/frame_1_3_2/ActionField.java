@@ -1,20 +1,26 @@
 package lesson1.checkpoint_1_3.frame_1_3_2;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
+
 public class ActionField {
-	
-	final int BF_WIDTH = 576;
-	final int BF_HEIGHT = 576;
+
 	final boolean COLORDED_MODE = false;
 	final int CELL_SIZE_PIX = 64;
 	
 	String[][] battleField = ButtleField.initField();
+	
+	Graphics g;
+	
 
 	
+	//@Override
 	protected void paintComponent(Graphics g) {
-	//	super.paintComponent(g);
+	//super.paintComponent(g);
 
 		int i = 0;
 		Color cc;
@@ -63,5 +69,6 @@ public class ActionField {
 		g.setColor(new Color(255, 255, 0));
 		g.fillRect(Bullet.bulletX, Bullet.bulletY, 14, 14);
 	}
+	
 	
 }

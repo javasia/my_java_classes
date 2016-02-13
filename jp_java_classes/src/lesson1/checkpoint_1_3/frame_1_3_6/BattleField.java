@@ -2,16 +2,28 @@ package lesson1.checkpoint_1_3.frame_1_3_6;
 
 public class BattleField {
 
-	int BF_WIDTH = 576;
-	int BF_HEIGHT = 576;
-	int CELL_SIZE = 64;
-	
-	int brickLevel=5;
+	private int BF_WIDTH = 576;
+	private int BF_HEIGHT = 576;
+	private int CELL_SIZE = 64;
 
-	public String[][] battleField;
+	int brickLevel = 5;
 
-	public BattleField() {
+	private String[][] battleField;
+
+	BattleField() {
 		battleField = initRandomField(brickLevel);
+	}
+
+	BattleField(String[][] battelField) {
+		this.battleField = battleField;
+	}
+
+	public int getBF_WIDTH() {
+		return BF_WIDTH;
+	}
+
+	public int getBF_HEIGHT() {
+		return BF_HEIGHT;
 	}
 
 	private String scanQuadrant(int y, int x) {
@@ -19,15 +31,15 @@ public class BattleField {
 	}
 
 	private void updateQuadrant(int y, int x, String obstacle) {
-		battleField[y][x]=obstacle;
+		battleField[y][x] = obstacle;
 	}
-	
+
 	private int getDimentionX() {
-		return (BF_WIDTH/CELL_SIZE)-1;
+		return battleField[0].length;
 	}
 
 	private int getDimentionY() {
-		return (BF_HEIGHT/CELL_SIZE)-1;
+		return battleField.length;
 	}
 
 	private String[][] initRandomField(int brickLevel) {

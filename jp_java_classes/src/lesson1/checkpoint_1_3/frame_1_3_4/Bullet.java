@@ -23,9 +23,11 @@ public class Bullet {
 	public void updateX (int modifier) {
 		x+=modifier;
 	}
+	
 	public void updateY (int modifier) {
 		y+=modifier;
 	}
+	
 	public void destroy (){
 		x=-100;
 		y=-100;

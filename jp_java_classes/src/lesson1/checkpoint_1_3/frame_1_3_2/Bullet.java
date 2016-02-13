@@ -4,5 +4,5 @@ public class Bullet {
 	
 	static int bulletX = -100;
 	static int bulletY = -100;
-	
+
 }

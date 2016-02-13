@@ -6,6 +6,12 @@ public class Bullet {
 	int y;
 	int speed;
 	int direction;
+	
+	Bullet (int x, int y, int direction){
+	this.x=x;	
+	this.y=y;	
+	this.direction=direction;	
+	}
 
 	public int getX() {
 		return x;

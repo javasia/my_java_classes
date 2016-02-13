@@ -11,7 +11,7 @@ public class BattleField {
 	public String[][] battleField;
 
 	public BattleField() {
-		battleField = initField(brickLevel);
+		battleField = initRandomField(brickLevel);
 	}
 
 	private String scanQuadrant(int y, int x) {
@@ -30,7 +30,7 @@ public class BattleField {
 		return (BF_HEIGHT/CELL_SIZE)-1;
 	}
 
-	private String[][] initField(int brickLevel) {
+	private String[][] initRandomField(int brickLevel) {
 
 		String[][] field = new String[9][9];
 

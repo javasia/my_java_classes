@@ -1,4 +1,4 @@
-package lesson1.checkpoint_1_2;
+package lesson1.checkpoint_1_2.Frame_1_2_4;
 
 public class Frame_1_2_4 {
 

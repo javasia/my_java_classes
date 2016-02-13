@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2013 midgardabc.com
  */
-package lesson1.checkpoint_1_3.frame_1_3_2;
+package tests;
 
 import java.awt.Color;
 import java.awt.Dimension;

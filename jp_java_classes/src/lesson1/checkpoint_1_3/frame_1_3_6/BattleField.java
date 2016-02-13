@@ -4,18 +4,20 @@ public class BattleField {
 
 	private int BF_WIDTH = 576;
 	private int BF_HEIGHT = 576;
-	private int CELL_SIZE = 64;
-
 	int brickLevel = 5;
 
 	private String[][] battleField;
 
-	BattleField() {
+	public BattleField() {
 		battleField = initRandomField(brickLevel);
 	}
 
-	BattleField(String[][] battelField) {
+	public BattleField(String[][] battleField) {
 		this.battleField = battleField;
+	}
+	
+	public String[][] getBattleField() {
+		return battleField;
 	}
 
 	public int getBF_WIDTH() {
@@ -26,11 +28,11 @@ public class BattleField {
 		return BF_HEIGHT;
 	}
 
-	private String scanQuadrant(int y, int x) {
+	public String scanQuadrant(int y, int x) {
 		return battleField[y][x];
 	}
 
-	private void updateQuadrant(int y, int x, String obstacle) {
+	public void updateQuadrant(int y, int x, String obstacle) {
 		battleField[y][x] = obstacle;
 	}
 

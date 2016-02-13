@@ -48,7 +48,7 @@ public class BattleField {
 
 		String[][] field = new String[9][9];
 
-		for (int i = 0; i <= getDimentionY(); i++) {
+		for (int i = 0; i < getDimentionY(); i++) {
 			field[i] = new String[] { " ", " ", " ", " ", " ", " ", " ", " ", " " };
 		}
 		System.out.println("Battle field initialized.");
@@ -59,10 +59,10 @@ public class BattleField {
 			brickLevel = 100;
 		}
 
-		for (int i = 0, j = 0; i <= getDimentionX(); i++) {
+		for (int i = 0, j = 0; i < getDimentionX(); i++) {
 			for (int k = 0; k <= brickLevel; k++) {
 				j = (int) (Math.random() * 10);
-				if (j > getDimentionX()) {
+				if (j > getDimentionX()-1) {
 					j = 0;
 				}
 				field[i][j] = "B";

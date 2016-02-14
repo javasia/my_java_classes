@@ -19,15 +19,9 @@ public class ActionField extends JPanel {
 	public void processTurn(Tank tank){
 		repaint();
 	}
-	
-	public BattleField getBf() {
-		return bf;
-	}
 
 	public void processMove(Tank tank) throws Exception {
 
-		processTurn(tank);
-		
 		int direction = tank.getDirection();
 
 		int[][] modifier = returnDirModifier();
@@ -50,20 +44,25 @@ public class ActionField extends JPanel {
 	}
 	
 	public void processFire(Bullet bullet) throws Exception {
-
-		this.bullet=bullet;
-
-		int direction = this.bullet.getDirection();
 		
-		int[][] modifier = returnDirModifier();
+			this.bullet=bullet;
+		
+			int direction=this.bullet.getDirection();
+		
+			int[][] modifier = returnDirModifier();
 
-		while (checkFieldMargins(bullet, this.bullet.getX(), this.bullet.getY()) && !processInterception("B")) {
-			this.bullet.updateY(modifier[direction - 1][0]);
-			this.bullet.updateX(modifier[direction - 1][1]);
+			while (checkFieldMargins(this.bullet, this.bullet.getX(), this.bullet.getY()) && !processInterception("B")) {
+				
+				this.bullet.updateY(modifier[direction-1][0]);
+				this.bullet.updateX(modifier[direction-1][1]);
+
+				repaint();
+				Thread.sleep(this.bullet.getSpeed());
+
+			}
+			
+			this.bullet.destroy();
 			repaint();
-			Thread.sleep(bullet.getSpeed());
-		}
-		this.bullet.destroy();
 	}
 	
 
@@ -76,12 +75,25 @@ public class ActionField extends JPanel {
 		tank.move();
 		tank.move();
 		tank.move();
+		
+		Thread.sleep(150);
 		tank.turn(1);
 		tank.fire();
+		Thread.sleep(150);
+		tank.turn(2);
+		tank.fire();
+		Thread.sleep(150);
 		tank.turn(3);
 		tank.fire();
+		Thread.sleep(150);
+		tank.turn(4);
 		tank.fire();
 		tank.fire();
+		tank.fire();
+		tank.fire();
+		tank.fire();
+		tank.fire();
+		
 	}
 
 	private boolean processInterception(String obstacle) throws Exception {
@@ -100,16 +112,16 @@ public class ActionField extends JPanel {
 			return true;
 		}
 		return false;
+
 	}
-	
+
 	private boolean checkFieldMargins(int quadY, int quadX) {
-		return (quadX > bf.getBF_WIDTH() || quadY > bf.getBF_HEIGHT() || quadX < 0 || quadY < 0);
+		return (quadX >= bf.getBattleField().length || quadY >= bf.getBattleField().length || quadX < 0 || quadY < 0);
 	}
 
 	private boolean checkFieldMargins(Tank tank, int y, int x) {
 
-		if (x <= bf.getBF_WIDTH() * bf.getCELL_SIZE() && x >= 0 && y <= bf.getBF_HEIGHT() * bf.getCELL_SIZE()
-				&& y >= 0) {
+		if (x <= bf.getBF_WIDTH() && x >= 0 && y <= bf.getBF_HEIGHT() && y >= 0) {
 			return true;
 		}
 		return false;
@@ -117,8 +129,8 @@ public class ActionField extends JPanel {
 	
 	private boolean checkFieldMargins(Bullet bullet, int y, int x) {
 
-		if (x <= bf.getBF_WIDTH() + bf.getCELL_SIZE() && x >= 0 - bf.getCELL_SIZE() && y <= bf.getBF_HEIGHT()*bf.getCELL_SIZE()
-				&& y >= 0 - bf.getCELL_SIZE()) {
+		if (x <= (bf.getBF_WIDTH() + bf.getCELL_SIZE()) && x >= (0 - bf.getCELL_SIZE())
+				&& (y <= bf.getBF_HEIGHT() + bf.getCELL_SIZE()) && (y >= 0 - bf.getCELL_SIZE())) {
 			return true;
 		}
 		return false;

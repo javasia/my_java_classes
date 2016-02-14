@@ -1,4 +1,4 @@
-package lesson1.checkpoint_1_3.frame_1_3_8;
+package lesson1.checkpoint_1_3.frame_1_3_10;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,6 +21,10 @@ public class ActionField extends JPanel {
 		repaint();
 	}
 	
+	public BattleField getBf() {
+		return bf;
+	}
+
 	public void processMove(Tank tank) throws Exception {
 
 		processTurn(tank);
@@ -67,8 +71,8 @@ public class ActionField extends JPanel {
 	
 
 	public void runTheGame() throws Exception {
-
-
+		tank.setDirection(4);
+		tank.move();
 	}
 
 	private boolean processInterception(String obstacle) throws Exception {
@@ -149,6 +153,8 @@ public class ActionField extends JPanel {
 		frame.pack();
 		frame.setVisible(true);
 	}
+	
+
 
 	@Override
 	protected void paintComponent(Graphics g) {

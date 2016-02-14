@@ -147,13 +147,13 @@ public class ActionField extends JPanel {
 	}
 
 	private void blinkOnHit(int quadY, int quadX, int times) throws Exception {
-		String temp = bf.getBattleField()[quadY][quadX];
+		String temp = bf.scanQuadrant(quadY, quadX);
 
 		for (int i = 0; i < times; i++) {
-			bf.getBattleField()[quadY][quadX] = "";
+			bf.updateQuadrant(quadY, quadX, "");
 			repaint();
 			Thread.sleep(30);
-			bf.getBattleField()[quadY][quadX] = temp;
+			bf.updateQuadrant(quadY, quadX, temp);
 			repaint();
 			Thread.sleep(30);
 		}

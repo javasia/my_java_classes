@@ -17,7 +17,6 @@ public class ActionField extends JPanel {
 	private BattleField bf;
 			
 	public void processTurn(Tank tank){
-		this.tank.setDirection(tank.getDirection());
 		repaint();
 	}
 	
@@ -152,7 +151,7 @@ public class ActionField extends JPanel {
 	public ActionField() {
 		
 		bf= new BattleField();
-		bullet = new Bullet(-100, -100, 1);
+		bullet = new Bullet(-100, -100, -1);
 		tank = new Tank(this,bf);
 		
 		JFrame frame = new JFrame("BATTLE FIELD, DAY 2");
@@ -215,7 +214,7 @@ public class ActionField extends JPanel {
 		}
 
 		g.setColor(new Color(255, 255, 0));
-		g.fillRect(tank.getX(), tank.getY(), 14, 14);
+		g.fillRect(bullet.getX(), bullet.getY(), 14, 14);
 	}
 	
 }

@@ -34,8 +34,8 @@ public class ActionField extends JPanel {
 		int[][] modifier = returnDirModifier();
 
 		for (int i = 0; checkFieldMargins(tank, tank.getY(), tank.getX()) && i <  bf.getCELL_SIZE(); i++) {
-			this.tank.setY(modifier[direction - 1][0]);
-			this.tank.setX(modifier[direction - 1][1]);
+			this.tank.upgradeY(modifier[direction - 1][0]);
+			this.tank.upgradeX(modifier[direction - 1][1]);
 			repaint();
 			Thread.sleep(tank.getSpeed());
 		}
@@ -43,36 +43,46 @@ public class ActionField extends JPanel {
 	
 	private int[][] returnDirModifier() {
 		int[][] dirModifier = new int[4][];
-		dirModifier[0] = new int[] { -1, 0 };
-		dirModifier[1] = new int[] { 1, 0 };
-		dirModifier[2] = new int[] { 0, -1 };
-		dirModifier[3] = new int[] { 0, 1 };
+		dirModifier[0] = new int[] { -1, 0 };//1 up
+		dirModifier[1] = new int[] { 1, 0 };//2 down
+		dirModifier[2] = new int[] { 0, -1 };//3 left
+		dirModifier[3] = new int[] { 0, 1 };//4 right
 		return dirModifier;
 	}
 	
 	public void processFire(Bullet bullet) throws Exception {
 
-		this.bullet.updateX(bullet.getX()); 
-		this.bullet.updateY(bullet.getY()); 
-		
-		int tankDirection = tank.getDirection();
+		this.bullet=bullet;
+
+		int direction = this.bullet.getDirection();
 		
 		int[][] modifier = returnDirModifier();
 
 		while (checkFieldMargins(bullet, this.bullet.getX(), this.bullet.getY()) && !processInterception("B")) {
-			this.bullet.updateX(modifier[tankDirection - 1][0]);
-			this.bullet.updateY(modifier[tankDirection - 1][1]);
+			this.bullet.updateY(modifier[direction - 1][0]);
+			this.bullet.updateX(modifier[direction - 1][1]);
 			repaint();
 			Thread.sleep(bullet.getSpeed());
-
 		}
-		bullet.destroy();
+		this.bullet.destroy();
 	}
 	
 
 	public void runTheGame() throws Exception {
-		tank.setDirection(4);
+		tank.turn(4);
 		tank.move();
+		tank.move();
+		tank.move();
+		tank.turn(2);
+		tank.move();
+		tank.move();
+		tank.move();
+		tank.turn(1);
+		tank.fire();
+		tank.turn(3);
+		tank.fire();
+		tank.fire();
+		tank.fire();
 	}
 
 	private boolean processInterception(String obstacle) throws Exception {
@@ -143,7 +153,7 @@ public class ActionField extends JPanel {
 		
 		bf= new BattleField();
 		bullet = new Bullet(-100, -100, 1);
-		tank = new Tank();
+		tank = new Tank(this,bf);
 		
 		JFrame frame = new JFrame("BATTLE FIELD, DAY 2");
 		frame.setLocation(750, 150);

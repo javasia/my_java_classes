@@ -1,4 +1,4 @@
-package lesson1.checkpoint_1_3.frame_1_3_4;
+package lesson1.checkpoint_1_3.frame_1_3_8;
 
 public class Bullet {
 	

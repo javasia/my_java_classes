@@ -4,6 +4,8 @@ public class BattleField {
 
 	private int BF_WIDTH = 576;
 	private int BF_HEIGHT = 576;
+	private int CELL_SIZE = 64;
+	
 	int brickLevel = 5;
 
 	private String[][] battleField;
@@ -46,9 +48,9 @@ public class BattleField {
 
 	private String[][] initRandomField(int brickLevel) {
 
-		String[][] field = new String[9][9];
+		String[][] field = new String[BF_HEIGHT/CELL_SIZE][BF_WIDTH/CELL_SIZE];
 
-		for (int i = 0; i < getDimentionY(); i++) {
+		for (int i = 0; i < field.length; i++) {
 			field[i] = new String[] { " ", " ", " ", " ", " ", " ", " ", " ", " " };
 		}
 		System.out.println("Battle field initialized.");
@@ -59,10 +61,10 @@ public class BattleField {
 			brickLevel = 100;
 		}
 
-		for (int i = 0, j = 0; i < getDimentionX(); i++) {
+		for (int i = 0, j = 0; i < field.length; i++) {
 			for (int k = 0; k <= brickLevel; k++) {
 				j = (int) (Math.random() * 10);
-				if (j > getDimentionX()-1) {
+				if (j > field[i].length-1) {
 					j = 0;
 				}
 				field[i][j] = "B";

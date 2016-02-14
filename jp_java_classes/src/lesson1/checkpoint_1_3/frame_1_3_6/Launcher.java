@@ -7,7 +7,7 @@ public class Launcher {
 	public static void main(String[] args) {
 
 		BattleField bf = new BattleField();
-		
+
 		String [][] field = bf.getBattleField();
 		
 		for (String[] str: field){

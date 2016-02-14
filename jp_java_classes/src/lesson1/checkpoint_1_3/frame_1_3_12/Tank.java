@@ -5,7 +5,7 @@ public class Tank {
 	private int x;
 	private int y;
 	private int direction;
-	private int speed = 20;
+	private int speed = 15;
 	private ActionField af;
 	private BattleField bf;
 
@@ -57,7 +57,7 @@ public class Tank {
 	}
 
 	public void fire() throws Exception {
-		Bullet bullet = new Bullet(x + 25, y + 25, direction);
+		Bullet bullet = new Bullet((x + 25), (y + 25), direction);
 		af.processFire(bullet);
 	}
 

@@ -4,7 +4,7 @@ public class Bullet {
 	
 	private int x;
 	private int y;
-	private int speed=10;
+	private int speed=5;
 	private int direction;
 	
 	Bullet (int x, int y, int direction){

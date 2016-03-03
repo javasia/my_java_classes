@@ -4,6 +4,7 @@ public class Launcher {
 
 	public static void main(String[] args) throws Exception {
 		ActionField af = new ActionField();
+		
 		BattleField bf = new BattleField();
 		Tiger tankTiger = new Tiger(af, bf);
 		T34 tankT34 = new T34(af, bf);

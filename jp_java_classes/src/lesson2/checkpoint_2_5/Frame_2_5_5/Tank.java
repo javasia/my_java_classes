@@ -1,11 +1,11 @@
-package lesson2.checkpoint_2_5.Frame_2_5_1;
+package lesson2.checkpoint_2_5.Frame_2_5_5;
 
 public class Tank {
 
 	private int x;
 	private int y;
 	private int direction;
-	protected int speed = 15;
+	private int speed = 15;
 	private ActionField af;
 	private BattleField bf;
 	private Logic logic;
@@ -32,6 +32,10 @@ public class Tank {
 	
 	public int getMaxSpeed() {
 		return maxSpeed;
+	}
+	
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 	
 	public void setMaxSpeed(int maxSpeed) {

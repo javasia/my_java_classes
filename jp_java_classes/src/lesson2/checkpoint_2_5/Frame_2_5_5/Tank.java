@@ -34,7 +34,7 @@ public class Tank {
 		return maxSpeed;
 	}
 	
-	public void setSpeed(int speed) {
+	protected void setSpeed(int speed) {
 		this.speed = speed;
 	}
 	

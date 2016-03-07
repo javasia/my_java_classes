@@ -4,9 +4,9 @@ public class T34 extends Tank {
 
 	public T34(ActionField af, BattleField bf) {
 		super(af, bf);
-		setColor(Colors.RED);
-		setCrew(3);
-		setMaxSpeed(70);
+		this.setColor(Colors.RED);
+		this.setCrew(3);
+		this.setMaxSpeed(70);
 	}
 
 }

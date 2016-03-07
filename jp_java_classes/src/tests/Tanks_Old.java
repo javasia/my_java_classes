@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Arrays;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
@@ -37,7 +36,7 @@ public class Tanks_Old extends JPanel {
 
 	final int DIRECTION_UP = 1, DIRECTION_DOWN = 2, DIRECTION_LEFT = 3, DIRECTION_RIGHT = 4;
 
-	final int BLINK_TIMES = 3; // blink times on hit
+	final int BLINK_TIMES = 6; // blink times on hit
 
 	int brickLevel = 5;	// the higher number the more bricks will be randomly
 							// added to battle field. Its recommended but not
@@ -49,7 +48,7 @@ public class Tanks_Old extends JPanel {
 	//final String CLEAR_MODE = "QUICK";	// QUICK CLEAR MODE: MOVING TO BORDER THAN
 									// FIRE AT SITE BY ROWS
 
-	// final String CLEAR_MODE = "QUICK_ADAPTIVE";	// QUICK ADAPTIVE CLEAR MODE: FIRE AT SIGHT THAN RUNING TO THE 
+	//final String CLEAR_MODE = "QUICK_ADAPTIVE";	// QUICK ADAPTIVE CLEAR MODE: FIRE AT SIGHT THAN RUNING TO THE 
 	 											// NEAREST BRICK BUT VERTIVAL AXEL IS LOCKED
 
 	String[][] battleField = initField();
@@ -70,7 +69,7 @@ public class Tanks_Old extends JPanel {
 
 		printFieldToConsole();
 
-		setTankInitPos();
+		//setTankInitPos();
 
 		putTankInCenter();// for testing purposes
 
@@ -78,7 +77,7 @@ public class Tanks_Old extends JPanel {
 
 	}
 
-	void clean() throws Exception {
+	public void clean() throws Exception {
 
 		long time = System.currentTimeMillis();
 
@@ -105,12 +104,12 @@ public class Tanks_Old extends JPanel {
 	void clearAdaptive() throws Exception {
 		while (getBrickQuadrant() != null) {
 
-			int[] getQuad = getQuadrant(tankX, tankY);
-			int[] getBrickQuad = getBrickQuadrant();
 
 			if (killNearest("B")) {
 				continue;
 			}
+			int[] getQuad = getQuadrant(tankX, tankY);
+			int[] getBrickQuad = getBrickQuadrant();
 			if (CLEAR_MODE.equals("QUICK_ADAPTIVE")) {
 				goKillNext(getQuad[0], getBrickQuad[1]);
 				continue;

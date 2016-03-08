@@ -1,8 +1,8 @@
 package lesson2.frame_2_6.frame_2_6_2;
 
 public class Sales {
-
-	Buyer[] data = Buyer.buyerDataBase;
+	
+	private Buyer[] data;
 	
 	public void salesByProductGroup (ProductGroups pg){
 		// code will be here
@@ -21,5 +21,9 @@ public class Sales {
 	}
 	public void salesPerPeriod (String startDate, String endDate){
 		// code will be here
+	}
+	
+	private void getData (){
+		// reads database and wrights Buyer[] data array. 
 	}
 }

@@ -17,10 +17,9 @@ public class Tiger extends Tank {
 		armor = 1;
 		}
 	
-	public Tiger(ActionField af, BattleField bf, int armor) {
-		super(af, bf);
-		setColor(Colors.YELLOW);
-		setCrew(7);
-		this.armor=armor;
+	
+	public Tiger(ActionField af, BattleField bf, int x, int y, int direction) {
+		super(af, bf, x, y, direction);
+		armor = 1;
 	}
 }

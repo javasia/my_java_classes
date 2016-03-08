@@ -82,8 +82,7 @@ public class ActionField extends JPanel {
 		
 		Tiger tiger1 = new Tiger (this, bf);
 		System.out.println("tiger1 armor:" + tiger1.getArmor());
-		Tiger tiger2 = new Tiger (this, bf, 10);
-		System.out.println("tiger2 armor:" + tiger2.getArmor());
+
 		BT7 bt7  = new BT7 (this, bf);
 		System.out.println("BT7 speed:" + bt7.getSpeed());
 		

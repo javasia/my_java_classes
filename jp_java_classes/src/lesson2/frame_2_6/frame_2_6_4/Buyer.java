@@ -1,5 +1,7 @@
 package lesson2.frame_2_6.frame_2_6_4;
 
+import java.util.Arrays;
+
 public class Buyer{
 static int totalBuyersQty;
 
@@ -104,6 +106,12 @@ public void updatePurchases(Product product, String date){
 			return;
 		}
 	}
+	increase();
+	updatePurchases(product, date);
+}
+
+private void increase() {
+	Arrays.copyOf(purchases, (int) (purchases.length * 1.3));
 }
 
 }

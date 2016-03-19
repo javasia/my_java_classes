@@ -1,5 +1,7 @@
 package lesson2.frame_2_6.frame_2_6_4;
 
+import java.util.Arrays;
+
 public class DatabaseProducts {
 
 	private Product[] database;
@@ -22,7 +24,13 @@ public class DatabaseProducts {
 				return i;
 			}
 		}
+		increase();
+		write(product);
 		return -1;
+	}
+	
+	private void increase() {
+		Arrays.copyOf(database, (int) (database.length * 1.3));
 	}
 	
 	public void updateStockQuantity(int id, int qty){

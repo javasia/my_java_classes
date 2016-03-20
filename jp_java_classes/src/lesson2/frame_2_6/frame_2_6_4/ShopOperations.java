@@ -141,7 +141,6 @@ public class ShopOperations extends Database {
 	}
 	
 	public void printCatalogue(){
-		int i = ProductGroups.values().length;
 		
 		for (ProductGroups pg:ProductGroups.values()){
 			for (Product product:products.getDatabase()){

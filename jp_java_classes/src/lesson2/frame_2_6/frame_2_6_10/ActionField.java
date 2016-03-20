@@ -73,9 +73,9 @@ public class ActionField extends JPanel {
 
 		bf.printFieldToConsole();
 
-		defender.putTankToRndDefenderPos();;// for testing purposes
+		defender.putTankToRndDefenderPos();
 
-		aggressor.putTankInCenter();;
+		aggressor.putTankInCenter();// for testing purposes
 
 		repaint();
 

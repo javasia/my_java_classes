@@ -4,8 +4,8 @@ public class Tank extends Logic{
 	
 	public static int totalTanks;
 
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	private int direction;
 	private int speed = 15;
 	private Type type;
@@ -187,7 +187,7 @@ public class Tank extends Logic{
 	public void destroy() throws Exception{
 		y = -100;
 		x = -100;
-		af.reborn(this.getType());
+		af.reborn(this);
 	}
 
 }

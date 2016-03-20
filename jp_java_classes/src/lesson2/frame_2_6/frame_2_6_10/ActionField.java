@@ -124,14 +124,15 @@ public class ActionField extends JPanel {
 		return false;
 	}
 	
-	public void reborn(Type type) throws Exception{
+	public void reborn(Tank tank) throws Exception{
 		Thread.sleep(3000);
-		if (type.equals(Type.ATTAKER)){
-			aggressor=new Tank(this, bf, type);
-			aggressor.putTankToRndAttackerPos();
+		if (tank.getType().equals(Type.ATTAKER)){
+			aggressor=tank;
+			//aggressor.putTankToRndAttackerPos();
+			aggressor.putTankInCenter();
 			return;
-		}else if (type.equals(Type.DEFENDER)){
-			defender=new Tank (this, bf, type);
+		}else if (tank.getType().equals(Type.DEFENDER)){
+			defender=tank;
 			defender.putTankToRndDefenderPos();;
 		}
 	}

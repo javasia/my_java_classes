@@ -17,8 +17,6 @@ public class Logic {
 		int[][] brickQuadrants = new int[(bf.getDimentionY()) * (bf.getDimentionX())][];
 
 		if (!bf.returnAllBrickQuadrants(brickQuadrants, "B")) {
-			System.out.println(
-					"getBrickQuadrant: Null result received from returnAllBrickQuadrants. No more brick left.");
 			return null;
 		}
 

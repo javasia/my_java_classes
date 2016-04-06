@@ -14,13 +14,4 @@ public class Rectangle  extends Shape{
 		g.fillRect(205, 55, 140, 90);
 	
 	}
-	
-	public void draw(Graphics g, int x, int y, int width, int height) {
-		
-		g.setColor(Color.BLACK);
-		Graphics2D g2d = (Graphics2D) g;
-		g2d.setStroke(new BasicStroke(5));
-		g2d.drawRect(x, y, width, height);		
-	}	
-
 }

@@ -5,23 +5,23 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-public abstract class AbstractShape implements Drawable {
+public abstract class AbstractShape implements Drawable{
 
 	// defaults
 	protected int x = 50, y = 50;
 	protected int width = 150, height = 150;
 	protected int strokeThickness = 1;
 	protected Color color = Color.BLACK;
-	Graphics g;
-
+	
+	protected Graphics g;
 	protected int[] xPoints, yPoints;
 	protected int points;
 
-	public void setStrokeThickness(int strokeThickness) {
+	protected void setStrokeThickness(int strokeThickness) {
 		this.strokeThickness = strokeThickness;
 	}
 
-	public void setColor(Color color) {
+	protected void setColor(Color color) {
 		this.color = color;
 	}
 
@@ -30,5 +30,4 @@ public abstract class AbstractShape implements Drawable {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(thickness));
 	}
-
 }

@@ -1,4 +1,4 @@
-package lesson3.checkpoint4.frame_3_4_2;
+package lesson3.checkpoint4.frame_3_4_4;
 
 public class T34 extends AbstractTank {
 
@@ -6,6 +6,7 @@ public class T34 extends AbstractTank {
 		super(af, bf, type);
 		setColor(Colors.RED);
 		setCrew(3);
+		setType(Type.DEFENDER);
 	}
 
 }

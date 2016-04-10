@@ -1,4 +1,4 @@
-package lesson3.checkpoint4.frame_3_4_2;
+package lesson3.checkpoint4.frame_3_4_4;
 
 public abstract class AbstractTank extends Logic {
 

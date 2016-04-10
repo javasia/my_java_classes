@@ -12,12 +12,12 @@ public class Classroom {
 	}
 
 	public Classroom(List<Student> students) {
-		this.students = students;
+		this.students = new ArrayList<>(students);
 	}
 
 	public Classroom(Student[] students) {
 		for (Student s : students) {
-			this.students.add(s);
+			enter(s);
 		}
 	}
 

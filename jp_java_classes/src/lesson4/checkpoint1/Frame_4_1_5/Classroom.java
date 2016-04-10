@@ -27,7 +27,7 @@ public class Classroom {
 
 	public void enter(Student student) {
 		students.add(student);
-		System.out.println("Student " + student + " added.");
+		System.out.println("Student " + student + " entered.");
 	}
 
 	public void leave(Student student) {

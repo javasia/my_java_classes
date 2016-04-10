@@ -1,4 +1,4 @@
-package lesson3.checkpoint4.frame_3_4_4;
+package lesson3.checkpoint4.frame_3_4_6;
 
 import java.awt.Color;
 import java.awt.Dimension;

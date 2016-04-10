@@ -1,4 +1,4 @@
-package lesson3.checkpoint4.frame_3_4_4;
+package lesson3.checkpoint4.frame_3_4_6;
 
 public class T34 extends AbstractTank {
 

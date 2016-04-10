@@ -1,6 +1,6 @@
 package lesson3.checkpoint4.frame_3_4_2;
 
-public class Tiger extends Tank {
+public class Tiger extends AbstractTank {
 
 	final int armor = 1;
 

@@ -1,6 +1,6 @@
 package lesson3.checkpoint4.frame_3_4_2;
 
-public abstract class Tank extends Logic {
+public abstract class AbstractTank extends Logic {
 
 	public static int totalTanks;
 
@@ -16,12 +16,12 @@ public abstract class Tank extends Logic {
 	private int armor;
 	protected ActionField af;
 
-	public Tank(ActionField af, BattleField bf, Type type) {
+	public AbstractTank(ActionField af, BattleField bf, Type type) {
 		super(bf);
 		totalTanks++;
 		id = totalTanks;
 		this.type = type;
-		tank = this;
+		abstractTank = this;
 		this.af = af;
 		af.addTank(this);
 	}

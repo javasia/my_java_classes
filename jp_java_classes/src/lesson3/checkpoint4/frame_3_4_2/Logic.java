@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Logic {
 	
 	protected BattleField bf;
-	protected Tank tank;
+	protected AbstractTank abstractTank;
 	private final int DIRECTION_UP =1, DIRECTION_DOWN=2, DIRECTION_LEFT=3, DIRECTION_RIGHT=4;
 	
 	public Logic(BattleField bf) {
@@ -21,7 +21,7 @@ public class Logic {
 		}
 
 		int[] nearestBrickQuad = null;
-		int[] curTankQuad = getQuadrant(tank.getX(), tank.getY());
+		int[] curTankQuad = getQuadrant(abstractTank.getX(), abstractTank.getY());
 		int distanceToTankTemp = 100;
 
 		for (int i = 0; brickQuadrants[i] != null && i < brickQuadrants.length; i++) {
@@ -51,34 +51,34 @@ public class Logic {
 
 		int newX = h * bf.getCELL_SIZE();
 		int newY = v * bf.getCELL_SIZE();
-		int x=tank.getX();
-		int y=tank.getY();
+		int x=abstractTank.getX();
+		int y=abstractTank.getY();
 		
 //to do -- check distance then fire or move (bullet speed / tank speed x cells)
 // to do mistake due to move getHorVerdirection
 		while (newX != x || newY != y) { 
 			if (newX != x) {
-				tank.turn(getHorDirection(newX));
+				abstractTank.turn(getHorDirection(newX));
 				if (checkBrick(getHorDirection(newX),"B")) {
-					tank.fire();
+					abstractTank.fire();
 					return;
 				}
-				tank.move();
+				abstractTank.move();
 			}
 			if (newY != y) {
-				tank.turn(getVertDirection(newY));
+				abstractTank.turn(getVertDirection(newY));
 				if (checkBrick(getVertDirection(newY),"B")) {
-					tank.fire();
+					abstractTank.fire();
 					return;
 				}
-				tank.move();
+				abstractTank.move();
 			}
 		}
 	}
 	
 	private boolean checkBrick(int newDirection, String object) throws Exception {
-		int quadX = getQuadrant(tank.getX(), tank.getY())[1];
-		int quadY = getQuadrant(tank.getX(), tank.getY())[0];
+		int quadX = getQuadrant(abstractTank.getX(), abstractTank.getY())[1];
+		int quadY = getQuadrant(abstractTank.getX(), abstractTank.getY())[0];
 
 		int[][] modifier = returnDirModifier();
 
@@ -103,21 +103,21 @@ public class Logic {
 	}
 	
 	private int getHorDirection(int tankCoordXPix) {
-		if (tankCoordXPix > tank.getX()) {
+		if (tankCoordXPix > abstractTank.getX()) {
 			return DIRECTION_RIGHT;
-		}else if(tankCoordXPix < tank.getX()){
+		}else if(tankCoordXPix < abstractTank.getX()){
 			return DIRECTION_LEFT;
 		}
-		return tank.getDirection();
+		return abstractTank.getDirection();
 	}
 
 	private int getVertDirection(int tankCoordYPix) {
-		if (tankCoordYPix > tank.getY()) {
+		if (tankCoordYPix > abstractTank.getY()) {
 			return DIRECTION_DOWN;
-		}else if (tankCoordYPix < tank.getY()){
+		}else if (tankCoordYPix < abstractTank.getY()){
 			return DIRECTION_UP;
 		}
-		return tank.getDirection();
+		return abstractTank.getDirection();
 	}
 	
 	private int[] getQuadrant(int x, int y) {
@@ -127,8 +127,8 @@ public class Logic {
 	
 	public int returnShotDirection(String object) {
 
-		int y = getQuadrant(tank.getX(), tank.getY())[0];
-		int x = getQuadrant(tank.getX(), tank.getY())[1];
+		int y = getQuadrant(abstractTank.getX(), abstractTank.getY())[0];
+		int x = getQuadrant(abstractTank.getX(), abstractTank.getY())[1];
 
 		int[][] dirModifier = returnDirModifier();
 		
@@ -165,8 +165,8 @@ public class Logic {
 	
 	public void putTankInCenter() {
 		bf.updateQuadrant(4, 4, "");;
-		tank.setX(4 * bf.getCELL_SIZE()); 
-		tank.setY(tank.getX());
+		abstractTank.setX(4 * bf.getCELL_SIZE()); 
+		abstractTank.setY(abstractTank.getX());
 	}
 	public void putTankToRndAttackerPos() {
 		
@@ -186,8 +186,8 @@ public class Logic {
 		int x = pos[rndPos-1][1];
 		
 		bf.updateQuadrant(y, x, "");;
-		tank.setX(x * bf.getCELL_SIZE()); 
-		tank.setY(y * bf.getCELL_SIZE());
+		abstractTank.setX(x * bf.getCELL_SIZE()); 
+		abstractTank.setY(y * bf.getCELL_SIZE());
 	
 	}
 	public void putTankToRndDefenderPos() {
@@ -208,8 +208,8 @@ public class Logic {
 		int x = pos[rndPos-1][1];
 		
 		bf.updateQuadrant(y, x, "");;
-		tank.setX(x * bf.getCELL_SIZE()); 
-		tank.setY(y * bf.getCELL_SIZE());
+		abstractTank.setX(x * bf.getCELL_SIZE()); 
+		abstractTank.setY(y * bf.getCELL_SIZE());
 		
 	}
 

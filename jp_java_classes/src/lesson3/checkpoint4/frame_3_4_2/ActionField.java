@@ -14,34 +14,34 @@ public class ActionField extends JPanel {
 	final boolean COLORDED_MODE = false;
 	final int BLINK_TIMES = 3;
 
-	private Tank aggressor;
-	private Tank defender;
+	private AbstractTank aggressor;
+	private AbstractTank defender;
 	private Bullet bullet;
 	private BattleField bf;
-	private Tank[] tanks = new Tank[10];
+	private AbstractTank[] abstractTanks = new AbstractTank[10];
 
-	public void setAggressor(Tank aggressor) {
+	public void setAggressor(AbstractTank aggressor) {
 		this.aggressor = aggressor;
 	}
 
-	public void setDefender(Tank defender) {
+	public void setDefender(AbstractTank defender) {
 		this.defender = defender;
 	}
 
-	public void processTurn(Tank tank) {
+	public void processTurn(AbstractTank abstractTank) {
 		repaint();
 	}
 
-	public void processMove(Tank tank) throws Exception {
+	public void processMove(AbstractTank abstractTank) throws Exception {
 
-		int direction = tank.getDirection();
+		int direction = abstractTank.getDirection();
 		int[][] modifier = returnDirModifier();
 
-		for (int i = 0; checkFieldMargins(tank, tank.getY(), tank.getX()) && i < bf.getCELL_SIZE(); i++) {
-			tank.upgradeY(modifier[direction - 1][0]);
-			tank.upgradeX(modifier[direction - 1][1]);
+		for (int i = 0; checkFieldMargins(abstractTank, abstractTank.getY(), abstractTank.getX()) && i < bf.getCELL_SIZE(); i++) {
+			abstractTank.upgradeY(modifier[direction - 1][0]);
+			abstractTank.upgradeX(modifier[direction - 1][1]);
 			repaint();
-			Thread.sleep(tank.getSpeed());
+			Thread.sleep(abstractTank.getSpeed());
 		}
 	}
 
@@ -120,7 +120,7 @@ public class ActionField extends JPanel {
 	
 	private boolean tankInterception(int id, int quadY, int quadX) throws Exception{
 		
-		for (Tank t:tanks){
+		for (AbstractTank t:abstractTanks){
 			if (t!=null && id != t.getId()){
 				int[] tQuanrant = getQuadrant(t.getX(), t.getY());
 				if (tQuanrant[0]==quadY && tQuanrant[1]==quadX){
@@ -138,7 +138,7 @@ public class ActionField extends JPanel {
 		return (quadX >= bf.getBattleField().length || quadY >= bf.getBattleField().length || quadX < 0 || quadY < 0);
 	}
 
-	private boolean checkFieldMargins(Tank tank, int y, int x) {
+	private boolean checkFieldMargins(AbstractTank abstractTank, int y, int x) {
 
 		if (x <= bf.getBF_WIDTH() && x >= 0 && y <= bf.getBF_HEIGHT() && y >= 0) {
 			return true;
@@ -179,17 +179,17 @@ public class ActionField extends JPanel {
 
 	}
 	
-	public void addTank (Tank tank){
-		if (tank.getId()<tanks.length){
-		tanks[tank.getId()]=tank;
+	public void addTank (AbstractTank abstractTank){
+		if (abstractTank.getId()<abstractTanks.length){
+		abstractTanks[abstractTank.getId()]=abstractTank;
 		return;
 		}
-		increase(tank.getId());
-		addTank(tank);
+		increase(abstractTank.getId());
+		addTank(abstractTank);
 	}
 	
 	private void increase(int id){
-		tanks=Arrays.copyOf(tanks, (int)(id*1.3));
+		abstractTanks=Arrays.copyOf(abstractTanks, (int)(id*1.3));
 	}
 
 	public ActionField() {

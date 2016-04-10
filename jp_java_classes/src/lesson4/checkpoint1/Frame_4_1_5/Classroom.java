@@ -22,17 +22,17 @@ public class Classroom {
 	}
 
 	public List<Student> getStudents() {
-		return students;
+		return new ArrayList<>(students);
 	}
 
 	public void enter(Student student) {
 		students.add(student);
-		System.out.println("Student " + student.name + " " + student.secondName + " added.");
+		System.out.println("Student " + student + " added.");
 	}
 
 	public void leave(Student student) {
 		students.remove(student);
-		System.out.println("Student " + student.name + " " + student.secondName + " left.");
+		System.out.println("Student " + student + " left.");
 	}
 
 	public int getStudetCount() {
@@ -42,8 +42,8 @@ public class Classroom {
 
 	public boolean isPresent(String name, String secondName) {
 		for (Student s : students) {
-			if (s.name.equals(name) && s.secondName.equals(secondName)) {
-				System.out.println("Student " + s.name + " " + s.secondName + " is presnet.");
+			if (s.getName().equals(name) && s.getSecondName().equals(secondName)) {
+				System.out.println("Student " + s + " is presnet.");
 				return true;
 			}
 		}
@@ -54,7 +54,7 @@ public class Classroom {
 	public void printStudentInfo() {
 		for (Student s : students) {
 			if (s != null) {
-				System.out.println(s.name + " " + s.secondName);
+				System.out.println(s);
 			}
 		}
 	}

@@ -2,8 +2,8 @@ package lesson4.checkpoint1.Frame_4_1_5;
 
 public class Student {
 	
-	String name;
-	String secondName;
+	private String name;
+	private String secondName;
 	
 	
 	
@@ -24,5 +24,9 @@ public class Student {
 		this.secondName = secondName;
 	}
 	
+	@Override
+	public String toString() {
+		return name + " " + secondName;
+	}
 	
 }

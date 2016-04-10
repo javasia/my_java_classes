@@ -1,6 +1,9 @@
 package lesson3.checkpoint4.frame_3_4_6;
 
-public class Bullet {
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Bullet implements Drawable, Destroyable{
 	
 	private int x;
 	private int y;
@@ -43,6 +46,11 @@ public class Bullet {
 	public void destroy (){
 		x=-100;
 		y=-100;
+	}
+	
+	public void draw(Graphics g){
+		g.setColor(new Color(255, 255, 0));
+		g.fillRect(x, y, 14, 14);
 	}
 }
 

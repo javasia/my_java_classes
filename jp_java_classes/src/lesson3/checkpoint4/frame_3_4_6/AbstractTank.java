@@ -1,5 +1,8 @@
 package lesson3.checkpoint4.frame_3_4_6;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public abstract class AbstractTank extends Logic implements Drawable, Destroyable {
 
 	public static int totalTanks;
@@ -9,10 +12,11 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 	private int direction;
 	private int speed = 15;
 	private Type type;
-	private Colors color;
 	private int crew;
 	private int id;
 	private int armor;
+	private Color towerColor=Color.DARK_GRAY;
+	private Color bodyColor=Color.BLACK;
 	protected ActionField af;
 
 	public AbstractTank(ActionField af, BattleField bf, Type type) {
@@ -23,6 +27,16 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 		abstractTank = this;
 		this.af = af;
 		af.addTank(this);
+		setBodyColor(bodyColor);
+		setTowerColor(towerColor);
+	}
+
+	public void setTowerColor(Color towerColor) {
+		this.towerColor = towerColor;
+	}
+
+	public void setBodyColor(Color bodyColor) {
+		this.bodyColor = bodyColor;
 	}
 
 	public int getX() {
@@ -45,13 +59,6 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 		this.armor = armor;
 	}
 
-	public Colors getColor() {
-		return color;
-	}
-
-	public void setColor(Colors color) {
-		this.color = color;
-	}
 
 	public int getCrew() {
 		return crew;
@@ -191,4 +198,20 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 			;
 		}
 	}
+	
+	public void draw(Graphics g){
+		g.setColor(bodyColor);
+		g.fillRect(x, y, bf.getCELL_SIZE(), bf.getCELL_SIZE());
+
+		g.setColor(towerColor);
+		if (direction == 1) {
+			g.fillRect(x + 20, y, 24, 34);
+		} else if (direction == 2) {
+			g.fillRect(x + 20, y + 30, 24, 34);
+		} else if (direction == 3) {
+			g.fillRect(x, y + 20, 34, 24);
+		} else {
+			g.fillRect(x + 30, y+ 20, 34, 24);
+		}
+	} 
 }

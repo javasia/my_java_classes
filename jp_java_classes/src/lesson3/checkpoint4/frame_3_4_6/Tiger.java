@@ -6,7 +6,6 @@ public class Tiger extends AbstractTank {
 
 	public Tiger(ActionField af, BattleField bf, Type type) {
 		super(af, bf, type);
-		setColor(Colors.YELLOW);
 		setCrew(7);
 		setArmor(1);
 	}

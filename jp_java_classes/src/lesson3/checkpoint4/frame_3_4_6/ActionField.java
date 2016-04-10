@@ -82,9 +82,9 @@ public class ActionField extends JPanel {
 		bf.printFieldToConsole();
 
 		defender.putTankToRndDefenderPos();
-
-		//aggressor.putTankInCenter();// for testing purposes
-		aggressor.putTankToRndAttackerPos();
+		
+		aggressor.putTankInCenter();// for testing purposes
+		//aggressor.putTankToRndAttackerPos();
 
 		repaint();
 
@@ -197,7 +197,7 @@ public class ActionField extends JPanel {
 		bf = new BattleField();
 		bullet = new Bullet(-100, -100, -1, 0);
 		defender = new T34(this, bf);
-		aggressor = new Tiger(this, bf, Type.ATTAKER);
+		aggressor = new BT7(this, bf, Type.ATTAKER);
 
 		JFrame frame = new JFrame("BATTLE FIELD, DAY 2");
 		frame.setLocation(750, 150);
@@ -243,37 +243,11 @@ public class ActionField extends JPanel {
 		}
 
 		// defender
-		g.setColor(new Color(0, 255, 0));
-		g.fillRect(defender.getX(), defender.getY(), bf.getCELL_SIZE(), bf.getCELL_SIZE());
-
-		g.setColor(new Color(255, 0, 0));
-		if (defender.getDirection() == 1) {
-			g.fillRect(defender.getX() + 20, defender.getY(), 24, 34);
-		} else if (defender.getDirection() == 2) {
-			g.fillRect(defender.getX() + 20, defender.getY() + 30, 24, 34);
-		} else if (defender.getDirection() == 3) {
-			g.fillRect(defender.getX(), defender.getY() + 20, 34, 24);
-		} else {
-			g.fillRect(defender.getX() + 30, defender.getY() + 20, 34, 24);
-		}
-
+		defender.draw(g);
 		// aggressor
-		g.setColor(new Color(255, 0, 0));
-		g.fillRect(aggressor.getX(), aggressor.getY(), bf.getCELL_SIZE(), bf.getCELL_SIZE());
-
-		g.setColor(new Color(0, 255, 0));
-		if (aggressor.getDirection() == 1) {
-			g.fillRect(aggressor.getX() + 20, aggressor.getY(), 24, 34);
-		} else if (aggressor.getDirection() == 2) {
-			g.fillRect(aggressor.getX() + 20, aggressor.getY() + 30, 24, 34);
-		} else if (aggressor.getDirection() == 3) {
-			g.fillRect(aggressor.getX(), aggressor.getY() + 20, 34, 24);
-		} else {
-			g.fillRect(aggressor.getX() + 30, aggressor.getY() + 20, 34, 24);
-		}
-
-		g.setColor(new Color(255, 255, 0));
-		g.fillRect(bullet.getX(), bullet.getY(), 14, 14);
+		aggressor.draw(g);
+		//bullet
+		bullet.draw(g);
 	}
 
 }

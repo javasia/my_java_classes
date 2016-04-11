@@ -25,6 +25,23 @@ public class Init {
 		
 		return ingredients;
 	}
+	
+	private Ingredient[] writeQtyIngredientsPerProduct(int[] quantityPerProduct) {
+		int j = 0;
+		Ingredient[] ingredients = createIngredients();
+		if (ingredients != null) {
+			for (Ingredient i : ingredients) {
+				if (i != null) {
+					i.setQuantityPerProduct(quantityPerProduct[j++]);
+				} else {
+					throw new NullPointerException("i in ingredients is null");
+				}
+			}
+			return ingredients;
+		} else {
+			throw new NullPointerException("ingredients is null");
+		}
+	}
 
 	public Product[] createProducts() {
 		
@@ -34,7 +51,8 @@ public class Init {
 
 		int i = 0;
 		for (Product p : products) {
-			products[i] = new Product(productList[i], createIngredients(), createRecipe(productList[i]));
+		    Ingredient[] ingredients = writeQtyIngredientsPerProduct(createrecipes(productList[i]));
+			products[i] = new Product(productList[i], ingredients);
 			i++;
 		}
 		
@@ -57,102 +75,109 @@ public class Init {
 		return productList;
 	}
 
-	private int[] createRecipe(String name) {
-		int[] recipe = new int[8];
-
+	private int[] createrecipes(String name) {
+		
+		int[][] recipes = new int[8][];
+		recipes = returnrecipes();
+		
 		String[] productList = returnProductList();
 
 		int i = 0;
 		for (String p : productList) {
 			if (p.equalsIgnoreCase(name)) {
-				break;
+				return recipes[i];
 			}
 			i++;
 		}
-
-		switch (i) {
-		case 0:
-			recipe[0] = 100;
-			recipe[1] = 30;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 0;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 1:
-			recipe[0] = 100;
-			recipe[1] = 30;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 50;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 2:
-			recipe[0] = 150;
-			recipe[1] = 30;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 0;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 3:
-			recipe[0] = 150;
-			recipe[1] = 30;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 100;
-			recipe[5] = 30;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 4:
-			recipe[0] = 150;
-			recipe[1] = 30;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 100;
-			recipe[5] = 20;
-			recipe[6] = 10;
-			recipe[7] = 0;
-			break;
-		case 5:
-			recipe[0] = 150;
-			recipe[1] = 0;
-			recipe[2] = 5;
-			recipe[3] = 0;
-			recipe[4] = 0;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 6:
-			recipe[0] = 150;
-			recipe[1] = 0;
-			recipe[2] = 0;
-			recipe[3] = 5;
-			recipe[4] = 0;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 0;
-			break;
-		case 7:
-			recipe[0] = 150;
-			recipe[1] = 0;
-			recipe[2] = 0;
-			recipe[3] = 0;
-			recipe[4] = 0;
-			recipe[5] = 20;
-			recipe[6] = 0;
-			recipe[7] = 5;
-			break;
-		}
-		return recipe;
+	return null;
+	}
+	
+	private int[][] returnrecipes(){
+	    int[][] recipes = new int [8][];
+	    
+	    recipes[0]=new int[8];
+	    recipes[0][0] = 100;
+		recipes[0][1] = 30;
+		recipes[0][2] = 0;
+		recipes[0][3] = 0;
+		recipes[0][4] = 0;
+		recipes[0][5] = 20;
+		recipes[0][6] = 0;
+		recipes[0][7] = 0;
+		
+		recipes[1]=new int[8];	
+		recipes[1][0] = 100;
+		recipes[1][1] = 30;
+		recipes[1][2] = 0;
+		recipes[1][3] = 0;
+		recipes[1][4] = 50;
+		recipes[1][5] = 20;
+		recipes[1][6] = 0;
+		recipes[1][7] = 0;
+		
+		recipes[2]=new int[8];
+		recipes[2][0] = 150;
+		recipes[2][1] = 30;
+		recipes[2][2] = 0;
+		recipes[2][3] = 0;
+		recipes[2][4] = 0;
+		recipes[2][5] = 20;
+		recipes[2][6] = 0;
+		recipes[2][7] = 0;
+		
+		recipes[3]=new int[8];	
+		recipes[3][0] = 150;
+		recipes[3][1] = 30;
+		recipes[3][2] = 0;
+		recipes[3][3] = 0;
+		recipes[3][4] = 100;
+		recipes[3][5] = 30;
+		recipes[3][6] = 0;
+		recipes[3][7] = 0;
+		
+		recipes[4]=new int[8];	
+		recipes[4][0] = 150;
+		recipes[4][1] = 30;
+		recipes[4][2] = 0;
+		recipes[4][3] = 0;
+		recipes[4][4] = 100;
+		recipes[4][5] = 20;
+		recipes[4][6] = 10;
+		recipes[4][7] = 0;
+		
+		recipes[5]=new int[8];
+		recipes[5][0] = 150;
+		recipes[5][1] = 0;
+		recipes[5][2] = 5;
+		recipes[5][3] = 0;
+		recipes[5][4] = 0;
+		recipes[5][5] = 20;
+		recipes[5][6] = 0;
+		recipes[5][7] = 0;
+		
+		recipes[6]=new int[8];	
+		recipes[6][0] = 150;
+		recipes[6][1] = 0;
+		recipes[6][2] = 0;
+		recipes[6][3] = 5;
+		recipes[6][4] = 0;
+		recipes[6][5] = 20;
+		recipes[6][6] = 0;
+		recipes[6][7] = 0;
+		
+		recipes[7]=new int[8];	
+		recipes[7][0] = 150;
+		recipes[7][1] = 0;
+		recipes[7][2] = 0;
+		recipes[7][3] = 0;
+		recipes[7][4] = 0;
+		recipes[7][5] = 20;
+		recipes[7][6] = 0;
+		recipes[7][7] = 5;
+			
+	    
+	    
+	    return recipes;
 	}
 
 }

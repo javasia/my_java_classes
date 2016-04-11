@@ -6,10 +6,9 @@ public class Product {
 	private Ingredient[] ingredients;
 	private float price;
 
-	public Product(String name, Ingredient[] ingredients, int[] quantityPerProduct) {
+	public Product(String name, Ingredient[] ingredients) {
 		this.name = name;
 		this.ingredients = ingredients;
-		writeQuantityPerProduct(quantityPerProduct);
 		price = calculatePrice(this);
 	}
 
@@ -52,20 +51,4 @@ public class Product {
 		}
 		return price;
 	}
-
-	private void writeQuantityPerProduct(int[] quantityPerProduct) {
-		int j = 0;
-		if (ingredients != null) {
-			for (Ingredient i : ingredients) {
-				if (i != null) {
-					i.setQuantityPerProduct(quantityPerProduct[j++]);
-				} else {
-					throw new NullPointerException("i in ingredients is null");
-				}
-			}
-		} else {
-			throw new NullPointerException("ingredients is null");
-		}
-	}
-
 }

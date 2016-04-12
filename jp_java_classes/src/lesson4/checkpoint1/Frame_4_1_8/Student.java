@@ -37,11 +37,10 @@ public class Student {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj==null){
-			return false;
-		}
 		if (obj instanceof Student){
-			return this.toString().equalsIgnoreCase(((Student)obj).toString());
+			if (name!=null && secondName!=null && this.toString().equalsIgnoreCase(((Student)obj).toString())){
+			return true;
+			}
 		}		
 		return false;
 	}

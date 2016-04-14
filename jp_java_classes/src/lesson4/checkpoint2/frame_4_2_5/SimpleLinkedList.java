@@ -4,13 +4,11 @@ public class SimpleLinkedList {
 	Node root;
 	int size;
 	
-	public void addFirst(Object o){
+	public void addFirst(Object obj){
 		Node node = new Node();
-		node.o=o;
+		node.obj=obj;
 		if (root!=null){
 			node.node=root;
-		}else{
-			node.node=node;
 		}
 		root=node;
 		size++;
@@ -29,7 +27,7 @@ public class SimpleLinkedList {
 	}
 	
 	private class Node {
-		Object o;
+		Object obj;
 		Node node;
 	}
 }

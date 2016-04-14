@@ -17,6 +17,7 @@ public class SimpleLinkedList {
 	public void addLast(Object obj) {
 		if (root == null) {
 			addFirst(obj);
+			return;
 		} else {
 
 			Node node = new Node();

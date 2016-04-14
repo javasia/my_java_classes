@@ -18,10 +18,18 @@ public class SimpleLinkedList {
 		if (root == null) {
 			addFirst(obj);
 		} else {
+
 			Node node = new Node();
 			node.obj = obj;
-			node.node = root;
-			root.node = node;
+
+			Node cp = root;
+
+			while (cp.node != null) {
+				cp = cp.node;
+			}
+
+			cp.node = node;
+
 			size++;
 		}
 	}

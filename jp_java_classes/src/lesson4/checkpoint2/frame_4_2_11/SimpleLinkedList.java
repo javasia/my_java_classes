@@ -1,6 +1,5 @@
 package lesson4.checkpoint2.frame_4_2_11;
 
-import java.nio.channels.IllegalSelectorException;
 import java.util.Iterator;
 
 public class SimpleLinkedList implements Iterable {

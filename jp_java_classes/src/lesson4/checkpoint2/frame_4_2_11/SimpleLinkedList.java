@@ -79,9 +79,49 @@ public class SimpleLinkedList implements Iterable {
 		System.out.println(cp.obj + "}");
 	}
 
+	public void removeObject(Object object) {
+		if (object == null) {
+			throw new IllegalStateException("Null is not allowed as method's parameter!");
+		}
+		if (root == null || size == 0) {
+			throw new IllegalStateException("Root is null or Size equals 0");
+		}
+
+		if (root.obj == object) {
+			if (size == 1) {
+				root = null;
+			} else {
+				root = root.node;
+			}
+			size--;
+			return;
+		}
+
+		Node cp = root;
+		Node prevPoint = new Node();
+
+		while (cp != null) {
+			if (cp.obj == object) {
+				prevPoint.node = cp.node;
+				return;
+			}
+			prevPoint = cp;
+			cp = cp.node;
+		}
+
+		if (cp == null) {
+			throw new IllegalStateException("No such element!");
+		}
+	}
+
 	private class Node {
 		Object obj;
 		Node node;
+
+		@Override
+		public String toString() {
+			return (String) obj;
+		}
 	}
 
 	@Override
@@ -94,7 +134,7 @@ public class SimpleLinkedList implements Iterable {
 		Node cp;
 
 		public SSLIterator() {
-			if (root==null){
+			if (root == null) {
 				throw new IllegalStateException("List is emty or root is violated!");
 			}
 			cp = root;
@@ -110,10 +150,10 @@ public class SimpleLinkedList implements Iterable {
 
 		@Override
 		public Object next() {
- 
-			Object res = cp.obj; 
+
+			Object res = cp.obj;
 			cp = cp.node;
-			
+
 			return res;
 		}
 	}

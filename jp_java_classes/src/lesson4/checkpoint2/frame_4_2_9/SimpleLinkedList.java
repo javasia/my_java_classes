@@ -1,7 +1,5 @@
 package lesson4.checkpoint2.frame_4_2_9;
 
-import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
-
 public class SimpleLinkedList {
 	Node root;
 	int size;

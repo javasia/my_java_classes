@@ -1,5 +1,7 @@
 package lesson4.checkpoint2.frame_4_2_9;
 
+import com.sun.org.apache.xpath.internal.axes.PredicatedNodeTest;
+
 public class SimpleLinkedList {
 	Node root;
 	int size;
@@ -37,6 +39,7 @@ public class SimpleLinkedList {
 
 	public void addAfter(Object obj, Object prev) throws RuntimeException {
 
+		
 		if (size == 0 || root == null) {
 			throw new IllegalStateException("The list is empty or root is violated!");
 		}
@@ -45,9 +48,9 @@ public class SimpleLinkedList {
 		node.obj = obj;
 
 		Node cp = root;
-		while (!cp.obj.equals(prev)) {
+		while (cp.obj != prev) {
 			if (cp.node==null){
-				throw new IllegalStateException("Previous object not found!"); 
+				throw new IllegalStateException("Previous object not found: "+ prev + "!"); 
 			}
 			cp = cp.node;
 		}
@@ -59,6 +62,21 @@ public class SimpleLinkedList {
 
 	public int getSize() {
 		return size;
+	}
+	
+	public void printList(){
+		
+		if (root==null || size==0){
+			throw new IllegalStateException("Root is null or Size equals 0");
+		}
+		
+		System.out.print("{ ");
+		Node cp = root;
+		while (cp.node!=null){
+			System.out.print(cp.obj+ ", ");
+			cp=cp.node;
+		}
+		System.out.println(cp.obj+ "}");
 	}
 
 	private class Node {

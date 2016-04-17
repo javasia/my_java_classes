@@ -21,6 +21,10 @@ public class Launcher {
 		while (i.hasNext()){
 			System.out.println(i.next());
 		}
+		
+		for (Object o:sll){
+			System.out.println(o);
+		}
 	}
 
 }

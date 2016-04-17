@@ -1,5 +1,6 @@
 package lesson4.checkpoint2.frame_4_2_11;
 
+import java.nio.channels.IllegalSelectorException;
 import java.util.Iterator;
 
 public class SimpleLinkedList implements Iterable {
@@ -85,7 +86,6 @@ public class SimpleLinkedList implements Iterable {
 
 	@Override
 	public Iterator iterator() {
-		// TODO Auto-generated method stub
 		return new SSLIterator();
 	}
 
@@ -94,6 +94,9 @@ public class SimpleLinkedList implements Iterable {
 		Node cp;
 
 		public SSLIterator() {
+			if (root==null){
+				throw new IllegalStateException("List is emty or root is violated!");
+			}
 			cp = root;
 		}
 

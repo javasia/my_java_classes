@@ -78,49 +78,9 @@ public class SimpleLinkedList implements Iterable {
 		System.out.println(cp.obj + "}");
 	}
 
-	public void removeObject(Object object) {
-		if (object == null) {
-			throw new IllegalStateException("Null is not allowed as method's parameter!");
-		}
-		if (root == null || size == 0) {
-			throw new IllegalStateException("Root is null or Size equals 0");
-		}
-
-		if (root.obj == object) {
-			if (size == 1) {
-				root = null;
-			} else {
-				root = root.node;
-			}
-			size--;
-			return;
-		}
-
-		Node cp = root;
-		Node prevPoint = new Node();
-
-		while (cp != null) {
-			if (cp.obj == object) {
-				prevPoint.node = cp.node;
-				return;
-			}
-			prevPoint = cp;
-			cp = cp.node;
-		}
-
-		if (cp == null) {
-			throw new IllegalStateException("No such element!");
-		}
-	}
-
 	private class Node {
 		Object obj;
 		Node node;
-
-		@Override
-		public String toString() {
-			return (String) obj;
-		}
 	}
 
 	@Override
@@ -130,18 +90,19 @@ public class SimpleLinkedList implements Iterable {
 
 	private class SSLIterator implements Iterator {
 
-		Node cp;
+		Node curPt;
+		Node prevPt;
 
 		public SSLIterator() {
 			if (root == null) {
 				throw new IllegalStateException("List is emty or root is violated!");
 			}
-			cp = root;
+			curPt = root;
 		}
 
 		@Override
 		public boolean hasNext() {
-			if (cp != null) {
+			if (curPt != null) {
 				return true;
 			}
 			return false;
@@ -150,10 +111,45 @@ public class SimpleLinkedList implements Iterable {
 		@Override
 		public Object next() {
 
-			Object res = cp.obj;
-			cp = cp.node;
+			Object res = curPt.obj;
+			prevPt = curPt;
+			if (curPt.node==null){
+				
+				try {
+					throw new IllegalStateException ("Out of bound of the list!");
+				}catch (IllegalStateException e){
+					e.printStackTrace();
+					System.err.println("Action ignored...");
+				}
+			}else {
+				curPt = curPt.node;
+			}
 
 			return res;
+		}
+
+		@Override
+		public void remove() {
+			
+			
+			if (size == 0 || root == null) {
+				throw new IllegalStateException("Zero size or root is violated!");
+			}
+
+			else if (size == 1) {
+				root = null;
+			}
+
+			else if (curPt.node == null) {
+				prevPt.node = null;
+			}
+
+			else if (curPt == root) {
+				next();
+				root = curPt;
+			} else {
+				prevPt.node=curPt.node;
+			}
 		}
 	}
 }

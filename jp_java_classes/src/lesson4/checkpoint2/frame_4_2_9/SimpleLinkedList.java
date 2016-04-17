@@ -70,7 +70,7 @@ public class SimpleLinkedList {
 			throw new IllegalStateException("Root is null or Size equals 0");
 		}
 		
-		System.out.print("{ ");
+		System.out.print("{");
 		Node cp = root;
 		while (cp.node!=null){
 			System.out.print(cp.obj+ ", ");

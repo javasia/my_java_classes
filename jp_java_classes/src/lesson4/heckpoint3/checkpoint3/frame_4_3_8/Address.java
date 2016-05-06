@@ -8,6 +8,11 @@ public class Address {
    public int house;
     
     public Address (String city, String street, int house){
+        
+        if (city==null || street == null || house<=0){
+            throw new IllegalStateException();
+        }
+        
         this.city=city;
         this.street=street;
         this.house=house;
@@ -18,7 +23,7 @@ public class Address {
        
        if (obj instanceof Address){
           Address address = (Address) obj;
-        if (city!=null && street != null && city.equals(address.city)&& 
+        if (city.equals(address.city)&& 
            street.equals(address.street)&& house == address.house){
               return true;
            }

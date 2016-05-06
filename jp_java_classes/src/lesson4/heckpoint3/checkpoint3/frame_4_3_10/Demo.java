@@ -1,4 +1,6 @@
-package lesson4.checkpoint3.frame_4_3_10;
+//package lesson4.checkpoint3.frame_4_3_10;
+
+import java.util.*;
 
 public class Demo {
 
@@ -16,12 +18,26 @@ public class Demo {
 	  
 	  HashMap data= new HashMap();
 	  
-	  data.put(person1);
-	  data.put(person2);
-	  data.put(person3);
-	  data.put(person4);
+	  data.put(person1.name, person1);
+	  data.put(person2.name, person2);
+	  data.put(person3.name, person3);
+	  data.put(person4.name, person4);
 	  
+	  Set keys = data.keySet();
 	  
+	  for (Object o:keys){
+	      System.out.println (o + "\t");
+	  }
+	  
+	  Collection objects = data.values();
+	  
+	  	  for (Object o:objects){
+	      System.out.println (o + "\t");
+	  }
+	  
+	  for (Object o:keys){
+	      System.out.println (data.get(o) + "\t");
+	  }
 	  
 	}
 

@@ -42,7 +42,9 @@ public class Address {
         fields[2]= new Integer(house);
 
         for (Object o:fields){
-        res = 37*res + o.hashCode();
+            if (c!=null){
+            res = 37*res + o.hashCode();
+            }        
         }
         
         return res;

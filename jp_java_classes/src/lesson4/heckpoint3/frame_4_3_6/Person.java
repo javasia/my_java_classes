@@ -1,4 +1,4 @@
-package lesson4.checkpoint3.frame_4_3_6;
+//package lesson4.checkpoint3.frame_4_3_6;
 
 
 public class Person {
@@ -38,7 +38,7 @@ public class Person {
             
         Person p = (Person) object;
         
-        if (name==p.name && age==p.age && salary == p.salary){
+        if (p.name!=null && name.equals(p.name) && age==p.age && salary == p.salary){
             return true;
         }
         

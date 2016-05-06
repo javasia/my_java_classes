@@ -27,7 +27,10 @@ public class Person {
         fields[3]= address;
         
         for (Object o:fields){
-        res = 37*res + o.hashCode();
+            if (c!=null){
+            res = 37*res + o.hashCode();
+            }        
+            
         }
         
         return res;

@@ -26,8 +26,8 @@ public class Person {
         fields[2]= new Long(salary);
         fields[3]= address;
         
-        for (Object c:fields){
-        res = 37*res + c.hashCode();
+        for (Object o:fields){
+        res = 37*res + o.hashCode();
         }
         
         return res;

@@ -1,0 +1,47 @@
+package lesson4.checkpoint3.frame_4_3_8;
+
+
+public class Address {
+    
+   public String city;
+   public String street;
+   public int house;
+    
+    public Address (String city, String street, int house){
+        this.city=city;
+        this.street=street;
+        this.house=house;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+       
+       if (obj instanceof Address){
+          Address address = (Address) obj;
+        if (city!=null && street != null && city.equals(address.city)&& 
+           street.equals(address.street)&& house == address.house){
+              return true;
+           }
+       }
+        return false;
+    }
+    
+       @Override
+    public int hashCode(){
+        int res = 25;
+        
+        Object[] fields = new Object[3];
+        
+        fields[0]= city;
+        fields[1]= street;
+        fields[2]= new Integer(house);
+
+        for (Object c:fields){
+        res = 37*res + c.hashCode();
+        }
+        
+        return res;
+        
+    }
+    
+}

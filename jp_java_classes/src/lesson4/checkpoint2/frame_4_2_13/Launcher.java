@@ -23,6 +23,11 @@ public class Launcher {
 		
 		i.remove();
 		sll.printList();
+		i.remove();
+		sll.printList();
+		i.remove();
+		sll.printList();
+
 	}
 
 }

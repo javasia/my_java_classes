@@ -1,10 +1,9 @@
-package lesson4.checkpoint4.frame_4_4_4.tanks;
+package lesson4.checkpoint4.frame_4_4_4.bf.tanks;
 
 import java.awt.Color;
 
-import lesson4.checkpoint4.frame_4_4_4.enumes.Type;
-import lesson4.checkpoint4.frame_4_4_4.service.ActionField;
-import lesson4.checkpoint4.frame_4_4_4.service.BattleField;
+import lesson4.checkpoint4.frame_4_4_4.ActionField;
+import lesson4.checkpoint4.frame_4_4_4.bf.BattleField;
 
 
 public class T34 extends AbstractTank {

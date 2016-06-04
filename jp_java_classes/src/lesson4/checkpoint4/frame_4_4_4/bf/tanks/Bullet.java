@@ -1,10 +1,10 @@
-package lesson4.checkpoint4.frame_4_4_4.tanks;
+package lesson4.checkpoint4.frame_4_4_4.bf.tanks;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import lesson4.checkpoint4.frame_4_4_4.interfaces.Destroyable;
-import lesson4.checkpoint4.frame_4_4_4.interfaces.Drawable;
+import lesson4.checkpoint4.frame_4_4_4.bf.Destroyable;
+import lesson4.checkpoint4.frame_4_4_4.bf.Drawable;
 
 
 public class Bullet implements Drawable, Destroyable{

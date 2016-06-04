@@ -1,16 +1,14 @@
-package lesson4.checkpoint4.frame_4_4_4.tanks;
+package lesson4.checkpoint4.frame_4_4_4.bf.tanks;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import lesson4.checkpoint4.frame_4_4_4.enumes.Type;
-import lesson4.checkpoint4.frame_4_4_4.interfaces.Destroyable;
-import lesson4.checkpoint4.frame_4_4_4.interfaces.Drawable;
-import lesson4.checkpoint4.frame_4_4_4.service.ActionField;
-import lesson4.checkpoint4.frame_4_4_4.service.BattleField;
-import lesson4.checkpoint4.frame_4_4_4.service.Logic;
+import lesson4.checkpoint4.frame_4_4_4.ActionField;
+import lesson4.checkpoint4.frame_4_4_4.bf.BFObject;
+import lesson4.checkpoint4.frame_4_4_4.bf.BattleField;
 
-public abstract class AbstractTank extends Logic implements Drawable, Destroyable {
+
+public abstract class AbstractTank extends Logic implements Tank {
 
 	public static int totalTanks;
 
@@ -75,7 +73,7 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 		this.crew = crew;
 	}
 
-	protected void setSpeed(int speed) {
+	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 
@@ -221,4 +219,11 @@ public abstract class AbstractTank extends Logic implements Drawable, Destroyabl
 			g.fillRect(x + 30, y+ 20, 34, 24);
 		}
 	} 
+	
+	public Action tankSetUp(){
+		Logic logic = new Logic(bf);
+		//return logic.getAction();
+		
+		return null;
+	}
 }

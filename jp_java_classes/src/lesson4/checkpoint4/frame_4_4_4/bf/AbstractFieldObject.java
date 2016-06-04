@@ -1,12 +1,10 @@
-package lesson4.checkpoint4.frame_4_4_4.fieldObjects;
+package lesson4.checkpoint4.frame_4_4_4.bf;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import lesson4.checkpoint4.frame_4_4_4.service.BattleField;
 
-
-public abstract class AbstractFieldObjects {
+public abstract class AbstractFieldObject implements BFObject{
 	
 	int x;
 	int y;

@@ -1,4 +1,4 @@
-package lesson4.checkpoint4.frame_4_4_4.service;
+package lesson4.checkpoint4.frame_4_4_4;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,11 +9,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import lesson4.checkpoint4.frame_4_4_4.enumes.Type;
-import lesson4.checkpoint4.frame_4_4_4.tanks.AbstractTank;
-import lesson4.checkpoint4.frame_4_4_4.tanks.BT7;
-import lesson4.checkpoint4.frame_4_4_4.tanks.Bullet;
-import lesson4.checkpoint4.frame_4_4_4.tanks.T34;
+import lesson4.checkpoint4.frame_4_4_4.bf.BattleField;
+import lesson4.checkpoint4.frame_4_4_4.bf.tanks.AbstractTank;
+import lesson4.checkpoint4.frame_4_4_4.bf.tanks.BT7;
+import lesson4.checkpoint4.frame_4_4_4.bf.tanks.Bullet;
+import lesson4.checkpoint4.frame_4_4_4.bf.tanks.T34;
+import lesson4.checkpoint4.frame_4_4_4.bf.tanks.Type;
 
 
 public class ActionField extends JPanel {
